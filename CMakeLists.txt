@@ -52,6 +52,11 @@ add_executable(test_gdiplus
 
 target_link_libraries(test_gdiplus gdiplus)
 
+project(afl-analyze)
+add_executable(afl-analyze
+  afl-analyze.c
+  )
+
 project(afl-showmap)
 
 add_executable(afl-showmap
@@ -64,9 +69,9 @@ add_executable(afl-tmin
   afl-tmin.c
   )
 
-add_library(custom_winafl_server SHARED custom_winafl_server.c)
+add_library(custom_winafl_server SHARED custom_winafl_server.c custom_winafl_server.def)
 
-add_library(custom_net_fuzzer SHARED custom_net_fuzzer.c)
+add_library(custom_net_fuzzer SHARED custom_net_fuzzer.c custom_net_fuzzer.def)
 
 if (${INTELPT})
 
